@@ -1,0 +1,253 @@
+:root {
+  --bg-color: #0a0f1a;
+  --bg-color-alt: #111b2d;
+  --bg-color-dark: #000814;
+  --text-color: #fff;
+  --accent-color: #00ffff;
+  --tag-bg: #00bfff;
+  --border-avatar: #003366;
+  --transition: 0.3s ease;
+}
+
+body.dark-mode {
+  --bg-color: #000814;
+  --bg-color-alt: #0a1a2f;
+  --bg-color-dark: #000;
+  --text-color: #eee;
+  --accent-color: #00e0ff;
+  --tag-bg: #007acc;
+  --border-avatar: #002244;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: radial-gradient(circle at top left, var(--bg-color), var(--bg-color-alt), var(--bg-color-dark));
+  color: var(--text-color);
+  min-height: 100vh;
+  overflow-x: hidden;
+  transition: background var(--transition), color var(--transition);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 12px;
+  margin-bottom: 2rem;
+}
+
+.navbar .brand {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: var(--accent-color);
+}
+
+.navbar ul {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+}
+
+.navbar ul li a {
+  color: var(--text-color);
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  transition: background var(--transition);
+}
+
+.navbar ul li a:hover {
+  background: var(--accent-color);
+  color: black;
+}
+
+/* Hero Section */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 1rem;
+  background: linear-gradient(135deg, var(--bg-color-alt), var(--bg-color-dark));
+  border-radius: 20px;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.avatar img {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--border-avatar);
+  box-shadow: 0 0 30px var(--border-avatar);
+  margin-bottom: 1.5rem;
+}
+
+.intro h1 {
+  font-size: 2rem;
+  font-weight: 400;
+  height: 40px;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid var(--accent-color);
+  width: fit-content;
+  animation: typing 3s steps(30, end), blink 0.7s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+.intro h2 {
+  font-size: 2.5rem;
+  margin: 0.5rem 0;
+}
+
+.highlight {
+  background: linear-gradient(to right, var(--accent-color), #3399ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.tag {
+  background-color: var(--tag-bg);
+  padding: 6px 16px;
+  border-radius: 999px;
+  margin-top: 1rem;
+  color: #000;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+/* Redes sociais */
+.social-icons {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.social-icons a {
+  color: var(--text-color);
+  font-size: 1.4rem;
+  border: 1px solid var(--text-color);
+  border-radius: 50%;
+  padding: 10px;
+  transition: transform var(--transition), color var(--transition), border-color var(--transition);
+}
+
+.social-icons a:hover {
+  transform: scale(1.15);
+  color: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+/* Projetos */
+.repos {
+  margin-top: 4rem;
+}
+
+.repos h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.repo-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.repo-card {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1.5rem;
+  border-radius: 12px;
+  backdrop-filter: blur(8px);
+  transition: transform var(--transition), background var(--transition);
+}
+
+.repo-card:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-5px);
+}
+
+.repo-card h3 {
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
+}
+
+.repo-card a {
+  color: var(--accent-color);
+  text-decoration: none;
+  position: relative;
+}
+
+.repo-card a::after {
+  content: " ↗";
+  transition: margin-left 0.3s;
+}
+
+.repo-card a:hover::after {
+  margin-left: 5px;
+}
+
+/* Footer */
+footer {
+  margin-top: 4rem;
+  text-align: center;
+  font-size: 0.9rem;
+  opacity: 0.6;
+}
+
+/* Botão de alternar modo escuro */
+.toggle-mode {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--accent-color);
+  color: black;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 4px 15px rgba(0, 255, 255, 0.3);
+  transition: background var(--transition);
+}
+
+#backToTop {
+  bottom: 80px;
+  display: none;
+}
+
+.toggle-mode:hover {
+  background: #00e0ff;
+}
+
