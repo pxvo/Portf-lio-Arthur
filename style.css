@@ -1,3 +1,6 @@
+/* ==========================================
+   VARIÁVEIS DE TEMA (modo claro e escuro)
+========================================== */
 :root {
   --bg-color: #0a0f1a;
   --bg-color-alt: #111b2d;
@@ -19,6 +22,9 @@ body.dark-mode {
   --border-avatar: #002244;
 }
 
+/* ==========================================
+   RESET GERAL
+========================================== */
 * {
   margin: 0;
   padding: 0;
@@ -26,6 +32,9 @@ body.dark-mode {
   scroll-behavior: smooth;
 }
 
+/* ==========================================
+   BODY / CONTAINER
+========================================== */
 body {
   font-family: 'Segoe UI', sans-serif;
   background: radial-gradient(circle at top left, var(--bg-color), var(--bg-color-alt), var(--bg-color-dark));
@@ -41,7 +50,9 @@ body {
   padding: 2rem;
 }
 
-/* Navbar */
+/* ==========================================
+   NAVBAR
+========================================== */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -77,7 +88,19 @@ body {
   color: black;
 }
 
-/* Hero Section */
+/* ==========================================
+   ÍCONE DEV
+========================================== */
+.dev-icon {
+  width: 34px;
+  height: 34px;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+/* ==========================================
+   HERO / CABEÇALHO
+========================================== */
 .hero {
   display: flex;
   align-items: center;
@@ -94,6 +117,9 @@ body {
   text-align: center;
 }
 
+/* ==========================================
+   AVATAR
+========================================== */
 .avatar img {
   width: 160px;
   height: 160px;
@@ -104,6 +130,9 @@ body {
   margin-bottom: 1.5rem;
 }
 
+/* ==========================================
+   INTRODUÇÃO (TÍTULOS E TAG)
+========================================== */
 .intro h1 {
   font-size: 2rem;
   font-weight: 400;
@@ -145,7 +174,9 @@ body {
   font-size: 0.9rem;
 }
 
-/* Redes sociais */
+/* ==========================================
+   REDES SOCIAIS
+========================================== */
 .social-icons {
   margin-top: 1.5rem;
   display: flex;
@@ -168,7 +199,25 @@ body {
   border-color: var(--accent-color);
 }
 
-/* Projetos */
+/* ==========================================
+   SEÇÃO SOBRE
+========================================== */
+.about {
+  margin: 4rem 0;
+  text-align: center;
+}
+
+.about p {
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+  font-size: 1.1rem;
+  color: var(--text-color);
+}
+
+/* ==========================================
+   SEÇÃO PROJETOS
+========================================== */
 .repos {
   margin-top: 4rem;
 }
@@ -218,15 +267,9 @@ body {
   margin-left: 5px;
 }
 
-/* Footer */
-footer {
-  margin-top: 4rem;
-  text-align: center;
-  font-size: 0.9rem;
-  opacity: 0.6;
-}
-
-/* Botão de alternar modo escuro */
+/* ==========================================
+   BOTÕES FIXOS
+========================================== */
 .toggle-mode {
   position: fixed;
   bottom: 20px;
@@ -239,7 +282,7 @@ footer {
   cursor: pointer;
   font-weight: bold;
   box-shadow: 0 4px 15px rgba(0, 255, 255, 0.3);
-  transition: background var(--transition);
+  transition: background var(--transition), transform 0.2s ease;
 }
 
 #backToTop {
@@ -249,5 +292,74 @@ footer {
 
 .toggle-mode:hover {
   background: #00e0ff;
+  transform: scale(1.05);
 }
 
+/* ==========================================
+   RESPONSIVIDADE
+========================================== */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .navbar ul {
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+  }
+
+  .navbar ul li {
+    width: 100%;
+  }
+
+  .navbar ul li a {
+    display: block;
+    width: 100%;
+  }
+
+  .hero {
+    flex-direction: column;
+    padding: 2rem 1rem;
+  }
+
+  .hero-content {
+    padding: 0 1rem;
+  }
+
+  .intro h1 {
+    font-size: 1.5rem;
+    height: auto;
+    animation: none;
+    border: none;
+  }
+
+  .intro h2 {
+    font-size: 1.8rem;
+  }
+
+  .repo-list {
+    grid-template-columns: 1fr;
+  }
+
+  .toggle-mode {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+  }
+
+  .avatar img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .about p {
+    padding: 0 1rem;
+    font-size: 1rem;
+  }
+
+  footer {
+    font-size: 0.8rem;
+  }
+}

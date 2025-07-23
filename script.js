@@ -1,4 +1,7 @@
+// script.js
+
 console.log("Portfólio do Arthur carregado!");
+console.log("%cBem-vindo ao portfólio do Arthur! 🚀", "color: #00ffff; font-weight: bold; font-size: 16px;");
 
 // Tema
 const toggleTheme = document.getElementById("toggleTheme");
@@ -26,4 +29,15 @@ ScrollReveal().reveal('.repo-card', {
   duration: 800,
   easing: 'ease-in-out',
   interval: 200
+});
+
+// Scroll suave para âncoras
+document.querySelectorAll("a[href^='#']").forEach(link => {
+  link.addEventListener("click", e => {
+    e.preventDefault();
+    const target = document.querySelector(link.getAttribute("href"));
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth" });
+    }
+  });
 });

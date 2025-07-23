@@ -1,69 +1,108 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Arthur Paiva | Desenvolvedor Front-end Júnior</title>
-  <meta name="description" content="Portfólio de Arthur Paiva - Desenvolvedor Front-end Júnior">
-  <meta name="keywords" content="Arthur Paiva, Front-end, HTML, CSS, JavaScript, Portfólio">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <div class="container">
-    <nav class="navbar">
-      <div class="brand">&gt;_ Arthur</div>
-      <ul>
-        <li><a href="#about">Início</a></li>
-        <li><a href="#projects">Projetos</a></li>
-        <li><a href="#contact">Contato</a></li>
-      </ul>
-    </nav>
-
-    <header class="hero" id="about">
-      <div class="hero-content">
-        <div class="avatar">
-          <img src="perfil.JPEG" alt="Arthur Paiva" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arthur Paiva | Desenvolvedor Front-end Júnior</title>
+    <meta
+      name="description"
+      content="Portfólio de Arthur Paiva - Desenvolvedor Front-end Júnior"
+    />
+    <meta
+      name="keywords"
+      content="Arthur Paiva, Front-end, HTML, CSS, JavaScript, Portfólio"
+    />
+    <link rel="icon" type="image/png" href="perfil.png" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <nav class="navbar">
+        <div class="brand">
+          <img
+            src="desenvolvedor.png"
+            alt="Ícone Desenvolvedor"
+            class="dev-icon"
+          />
+          Arthur
         </div>
-        <div class="intro">
-          <h1>Olá, eu sou <strong>Arthur Paiva</strong>,</h1>
-          <h2><span class="highlight">DESENVOLVEDOR FRONT-END</span></h2>
-          <div class="tag">Júnior</div>
-          <div class="social-icons">
-            <a href="https://github.com/pxvo" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="https://www.instagram.com/paivxp" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.linkedin.com/in/paivaarthur/" target="_blank"><i class="fab fa-linkedin"></i></a>
+
+        <ul>
+          <li><a href="#about">Início</a></li>
+          <li><a href="#projects">Projetos</a></li>
+          <li><a href="#contact">Contato</a></li>
+        </ul>
+      </nav>
+
+      <header class="hero" id="about">
+        <div class="hero-content">
+          <div class="avatar">
+            <img src="perfil.JPEG" alt="Arthur Paiva" />
+          </div>
+          <div class="intro">
+            <h1>Olá, eu sou <strong>Arthur Paiva</strong>,</h1>
+            <h2><span class="highlight">DESENVOLVEDOR FRONT-END</span></h2>
+            <div class="tag">Júnior</div>
+            <div class="social-icons">
+              <a href="https://github.com/pxvo" target="_blank"
+                ><i class="fab fa-github"></i
+              ></a>
+              <a href="https://www.instagram.com/paivxp" target="_blank"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="https://www.linkedin.com/in/paivaarthur/" target="_blank"
+                ><i class="fab fa-linkedin"></i
+              ></a>
+            </div>
           </div>
         </div>
-      </div>
-    </header>
+      </header>
 
-    <section class="repos" id="projects">
-      <h2>Meus Projetos</h2>
-      <div class="repo-list">
-        <div class="repo-card">
-          <h3>BVSOL</h3>
-          <p>Projeto de aplicação web com foco em energia solar. Interface responsiva e interativa.</p>
-          <a href="https://github.com/pxvo/BVSOL" target="_blank">Ver no GitHub</a>
+      <section class="about">
+        <h2>Sobre Mim</h2>
+        <p>
+          Sou Arthur Paiva, desenvolvedor front-end apaixonado por criar
+          interfaces modernas, acessíveis e responsivas. Tenho experiência com
+          HTML, CSS, JavaScript e estou sempre estudando novas tecnologias.
+        </p>
+      </section>
+
+      <section class="repos" id="projects">
+        <h2>Meus Projetos</h2>
+        <div class="repo-list">
+          <div class="repo-card">
+            <h3>BVSOL</h3>
+            <p>
+              Projeto de aplicação web com foco em energia solar. Interface
+              responsiva e interativa.
+            </p>
+            <a href="https://github.com/pxvo/BVSOL" target="_blank"
+              >Ver no GitHub</a
+            >
+          </div>
+
+          <div class="repo-card">
+            <h3>Atletica Nexus</h3>
+            <p>
+              Landing page para Atlética universitária com foco em design
+              moderno e comunicação visual.
+            </p>
+            <a href="https://github.com/pxvo/Atletica-Nexus" target="_blank"
+              >Ver no GitHub</a
+            >
+          </div>
         </div>
+      </section>
+    </div>
 
-        <div class="repo-card">
-          <h3>Atletica Nexus</h3>
-          <p>Landing page para Atlética universitária com foco em design moderno e comunicação visual.</p>
-          <a href="https://github.com/pxvo/Atletica-Nexus" target="_blank">Ver no GitHub</a>
-        </div>
-      </div>
-    </section>
+    <button id="backToTop" class="toggle-mode">↑ Topo</button>
+    <button class="toggle-mode" id="toggleTheme">Alternar Tema</button>
 
-    <footer id="contact">
-      <p>Desenvolvido com ❤️ por Arthur Paiva</p>
-    </footer>
-  </div>
-
-  <button id="backToTop" class="toggle-mode">↑ Topo</button>
-  <button class="toggle-mode" id="toggleTheme">Alternar Tema</button>
-  
-  <script src="https://unpkg.com/scrollreveal"></script>
-  <script src="script.js"></script>
-</body>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="script.js"></script>
+  </body>
 </html>
