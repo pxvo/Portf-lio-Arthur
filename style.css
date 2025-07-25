@@ -61,12 +61,16 @@ body {
   background-color: rgba(0, 0, 0, 0.4);
   border-radius: 12px;
   margin-bottom: 2rem;
+  position: relative;
 }
 
 .navbar .brand {
   font-size: 1.6rem;
   font-weight: bold;
   color: var(--accent-color);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
 }
 
 .navbar ul {
@@ -89,6 +93,40 @@ body {
 }
 
 /* ==========================================
+   HAMBURGUER MENU
+========================================== */
+.hamburger {
+  display: none;
+  font-size: 1.6rem;
+  color: var(--text-color);
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .navbar ul li a {
+    text-align: center;
+    width: 100%;
+    display: block;
+  }
+}
+
+/* ==========================================
    ÍCONE DEV
 ========================================== */
 .dev-icon {
@@ -97,7 +135,6 @@ body {
   vertical-align: middle;
   margin-right: 8px;
 }
-
 /* ==========================================
    HERO / CABEÇALHO
 ========================================== */
@@ -301,23 +338,42 @@ body {
 @media (max-width: 768px) {
   .navbar {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    text-align: center;
+  }
+
+  .navbar .brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.8rem;
   }
 
   .navbar ul {
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 1rem;
     width: 100%;
   }
 
   .navbar ul li {
     width: 100%;
+    padding: 0.5rem 0;
   }
 
   .navbar ul li a {
     display: block;
     width: 100%;
+    text-align: center;
+    padding: 0.5rem;
+    border-radius: 6px;
+    transition: background 0.2s ease;
+  }
+
+  .navbar ul li a:hover {
+    background: var(--accent-color);
+    color: #000;
   }
 
   .hero {
@@ -362,4 +418,18 @@ body {
   footer {
     font-size: 0.8rem;
   }
+}
+
+/* ==========================================
+   SCROLL REVEAL ADICIONAL
+========================================== */
+section, footer, .hero {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+section.revealed, footer.revealed, .hero.revealed {
+  opacity: 1;
+  transform: none;
 }
