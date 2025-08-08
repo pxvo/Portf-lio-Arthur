@@ -98,10 +98,11 @@ body {
 }
 
 /* ÍCONE DEV */
-.dev-icon { 
-  width: 34px; 
-  height: 34px; 
-  margin-right: 8px; 
+.dev-icon {
+  width: 34px;
+  height: 34px;
+  vertical-align: middle;
+  margin-right: 8px;
 }
 
 /* HERO */
@@ -114,6 +115,7 @@ body {
   border-radius: 20px;
 }
 
+/* HERO CONTENT */
 .hero-content {
   display: flex;
   flex-direction: column;
@@ -130,19 +132,48 @@ body {
   border: 4px solid var(--border-avatar);
   box-shadow: 0 0 30px var(--border-avatar);
   margin-bottom: 1.5rem;
-  background: #444; /* Fallback caso a imagem não carregue */
+  background: #444; /* fallback visual se imagem não carregar */
 }
 
-/* INTRO */
+/* INTRO / TYPING */
 .intro h1 { font-size: 2rem; margin-bottom: 0.5rem; }
 .intro h2 { font-size: 2.5rem; margin: 0.5rem 0; }
 
+.typing {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0; /* começa "fechado" e abre com a animação */
+  border-right: 3px solid var(--accent-color);
+  box-sizing: content-box;
+  /* animações definidas, mas pausadas até o reveal */
+  animation: typing 2.4s steps(30, end) forwards, blink 0.7s step-end infinite;
+  animation-play-state: paused;
+}
+
+/* quando a seção tiver .revealed a animação começa */
+.revealed .typing,
+.hero.revealed .typing {
+  animation-play-state: running;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+/* HIGHLIGHT */
 .highlight {
   background: linear-gradient(to right, var(--accent-color), #3399ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
+/* TAG */
 .tag {
   background-color: var(--tag-bg);
   padding: 6px 16px;
@@ -219,9 +250,53 @@ body {
   border-radius: 8px;
   cursor: pointer;
   font-weight: bold;
+  box-shadow: 0 4px 15px rgba(0, 255, 255, 0.2);
+  transition: background var(--transition), transform 0.2s ease;
 }
 
-#backToTop { bottom: 80px; display: none; }
+#backToTop {
+  bottom: 80px;
+  display: none;
+}
 
-/* VISIBILIDADE PADRÃO */
-.show { opacity: 1 !important; transform: none !important; }
+/* REVEAL ANIMATION (inicialmente escondido; JS adiciona .revealed) */
+section, footer, .hero {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* quando .revealed for aplicada, exibe com transição suave */
+.revealed {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    text-align: center;
+  }
+
+  .navbar .brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.8rem;
+  }
+
+  .hero {
+    flex-direction: column;
+    padding: 2rem 1rem;
+  }
+
+  .intro h1 { font-size: 1.5rem; }
+  .intro h2 { font-size: 1.8rem; }
+
+  .avatar img { width: 120px; height: 120px; }
+  .repo-list { grid-template-columns: 1fr; }
+}

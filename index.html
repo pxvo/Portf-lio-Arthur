@@ -1,24 +1,31 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Arthur Paiva | Desenvolvedor Front-end Júnior</title>
   <meta name="description" content="Portfólio de Arthur Paiva - Desenvolvedor Front-end Júnior">
   <meta name="keywords" content="Arthur Paiva, Front-end, HTML, CSS, JavaScript, Portfólio">
   <link rel="icon" type="image/png" href="favicon.png" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="style.css" />
+  <!-- Caso o JS esteja desabilitado, garante que o conteúdo apareça -->
+  <noscript>
+    <style>
+      section, footer, .hero { opacity: 1 !important; transform: none !important; }
+      .typing { animation-play-state: running !important; }
+    </style>
+  </noscript>
 </head>
 <body>
   <div class="container">
     <nav class="navbar">
       <div class="brand" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
-        <img src="desenvolvedor.png" alt="Ícone Desenvolvedor" class="dev-icon" onerror="this.style.display='none';" />
+        <img src="desenvolvedor.png" alt="Ícone Desenvolvedor" class="dev-icon" onerror="this.style.display='none'">
         Arthur
       </div>
 
-      <div class="hamburger" id="hamburger">
+      <div class="hamburger" id="hamburger" aria-label="Abrir menu">
         <i class="fas fa-bars"></i>
       </div>
 
@@ -29,15 +36,19 @@
       </ul>
     </nav>
 
-    <header class="hero show" id="about">
+    <!-- cada seção tem a classe "reveal" que será animada ao entrar na viewport -->
+    <header class="hero reveal" id="about">
       <div class="hero-content">
         <div class="avatar">
-          <img src="perfil.JPEG" alt="Arthur Paiva" onerror="this.style.background='#444';this.style.width='160px';this.style.height='160px';this.style.borderRadius='50%';this.style.display='inline-block';" />
+          <img src="perfil.JPEG" alt="Arthur Paiva" onerror="this.style.display='none'">
         </div>
+
         <div class="intro">
-          <h1>Olá, eu sou <strong>Arthur Paiva</strong>,</h1>
+          <!-- typing controlado por CSS; só começa quando a seção receber .revealed -->
+          <h1 class="typing">Olá, eu sou <strong>Arthur Paiva</strong>,</h1>
           <h2><span class="highlight">DESENVOLVEDOR FRONT-END</span></h2>
           <div class="tag">Júnior</div>
+
           <div class="social-icons">
             <a href="https://github.com/pxvo" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
             <a href="https://www.instagram.com/paivxp" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
@@ -47,12 +58,12 @@
       </div>
     </header>
 
-    <section class="about show">
+    <section class="about reveal">
       <h2>Sobre Mim</h2>
       <p>Sou Arthur Paiva, desenvolvedor front-end apaixonado por criar interfaces modernas, acessíveis e responsivas. Tenho experiência com HTML, CSS, JavaScript e estou sempre estudando novas tecnologias.</p>
     </section>
 
-    <section class="repos show" id="projects">
+    <section class="repos reveal" id="projects">
       <h2>Meus Projetos</h2>
       <div class="repo-list">
         <div class="repo-card">
@@ -69,14 +80,15 @@
       </div>
     </section>
 
-    <footer id="contact" class="show">
+    <footer id="contact" class="reveal">
       <p>&copy; 2025 Arthur Paiva</p>
     </footer>
   </div>
 
-  <button id="backToTop" class="toggle-mode">↑ Topo</button>
-  <button class="toggle-mode" id="toggleTheme">Alternar Tema</button>
+  <button id="backToTop" class="toggle-mode" aria-label="Voltar ao topo">↑ Topo</button>
+  <button class="toggle-mode" id="toggleTheme" aria-label="Alternar tema">Alternar Tema</button>
 
+  <!-- ScrollReveal opcional; se não carregar, usamos IntersectionObserver -->
   <script src="https://unpkg.com/scrollreveal"></script>
   <script src="script.js"></script>
 </body>
