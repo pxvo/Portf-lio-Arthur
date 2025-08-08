@@ -14,7 +14,7 @@
   <div class="container">
     <nav class="navbar">
       <div class="brand" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
-        <img src="desenvolvedor.png" alt="Ícone Desenvolvedor" class="dev-icon" />
+        <img src="desenvolvedor.png" alt="Ícone Desenvolvedor" class="dev-icon" onerror="this.style.display='none';" />
         Arthur
       </div>
 
@@ -29,10 +29,10 @@
       </ul>
     </nav>
 
-    <header class="hero reveal" id="about">
+    <header class="hero show" id="about">
       <div class="hero-content">
         <div class="avatar">
-          <img src="perfil.JPEG" alt="Arthur Paiva" />
+          <img src="perfil.JPEG" alt="Arthur Paiva" onerror="this.style.background='#444';this.style.width='160px';this.style.height='160px';this.style.borderRadius='50%';this.style.display='inline-block';" />
         </div>
         <div class="intro">
           <h1>Olá, eu sou <strong>Arthur Paiva</strong>,</h1>
@@ -47,12 +47,12 @@
       </div>
     </header>
 
-    <section class="about reveal">
+    <section class="about show">
       <h2>Sobre Mim</h2>
       <p>Sou Arthur Paiva, desenvolvedor front-end apaixonado por criar interfaces modernas, acessíveis e responsivas. Tenho experiência com HTML, CSS, JavaScript e estou sempre estudando novas tecnologias.</p>
     </section>
 
-    <section class="repos reveal" id="projects">
+    <section class="repos show" id="projects">
       <h2>Meus Projetos</h2>
       <div class="repo-list">
         <div class="repo-card">
@@ -69,7 +69,7 @@
       </div>
     </section>
 
-    <footer id="contact" class="reveal">
+    <footer id="contact" class="show">
       <p>&copy; 2025 Arthur Paiva</p>
     </footer>
   </div>
