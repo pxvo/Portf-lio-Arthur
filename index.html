@@ -9,7 +9,6 @@
   <link rel="icon" type="image/png" href="favicon.png" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="style.css" />
-  <!-- Caso o JS esteja desabilitado, garante que o conteúdo apareça -->
   <noscript>
     <style>
       section, footer, .hero { opacity: 1 !important; transform: none !important; }
@@ -25,18 +24,17 @@
         Arthur
       </div>
 
-      <div class="hamburger" id="hamburger" aria-label="Abrir menu">
+      <div class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false">
         <i class="fas fa-bars"></i>
       </div>
 
-      <ul id="nav-links" class="nav-links">
+      <ul class="nav-links">
         <li><a href="#about">Início</a></li>
         <li><a href="#projects">Projetos</a></li>
         <li><a href="#contact">Contato</a></li>
       </ul>
     </nav>
 
-    <!-- cada seção tem a classe "reveal" que será animada ao entrar na viewport -->
     <header class="hero reveal" id="about">
       <div class="hero-content">
         <div class="avatar">
@@ -44,7 +42,6 @@
         </div>
 
         <div class="intro">
-          <!-- typing controlado por CSS; só começa quando a seção receber .revealed -->
           <h1 class="typing">Olá, eu sou <strong>Arthur Paiva</strong>,</h1>
           <h2><span class="highlight">DESENVOLVEDOR FRONT-END</span></h2>
           <div class="tag">Júnior</div>
@@ -88,7 +85,6 @@
   <button id="backToTop" class="toggle-mode" aria-label="Voltar ao topo">↑ Topo</button>
   <button class="toggle-mode" id="toggleTheme" aria-label="Alternar tema">Alternar Tema</button>
 
-  <!-- ScrollReveal opcional; se não carregar, usamos IntersectionObserver -->
   <script src="https://unpkg.com/scrollreveal"></script>
   <script src="script.js"></script>
 </body>

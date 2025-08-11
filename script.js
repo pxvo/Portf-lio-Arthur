@@ -19,38 +19,44 @@ if (backToTop) {
 }
 
 // Menu hambúrguer
-const hamburger = document.getElementById("hamburger");
-const navLinks = document.getElementById("nav-links");
+const hamburger = document.querySelector("#hamburger");
+const navLinks = document.querySelector(".nav-links");
+
 if (hamburger && navLinks) {
   hamburger.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
+    const isActive = navLinks.classList.toggle("active");
+    hamburger.setAttribute("aria-expanded", isActive);
+  });
+
+  // Fecha o menu no mobile ao clicar em um link
+  navLinks.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+      navLinks.classList.remove("active");
+      hamburger.setAttribute("aria-expanded", false);
+    });
   });
 }
 
-// REVEAL: se ScrollReveal existir, usa ele e adiciona .revealed no afterReveal.
-// Caso contrário, usa IntersectionObserver para aplicar .revealed à medida que as seções entram na viewport.
+// REVEAL
 const revealSelector = ".reveal";
 
 function addRevealed(el) {
   el.classList.add("revealed");
 }
 
-// Se ScrollReveal estiver disponível (carregado via CDN), usá-lo e still adicionar classe .revealed
 if (typeof ScrollReveal !== "undefined") {
   ScrollReveal().reveal(revealSelector, {
     origin: "bottom",
     distance: "40px",
-    duration: 700, // antes era 900, agora mais rápido
+    duration: 700,
     easing: "ease",
     reset: false,
-    interval: 80, // revela elementos com intervalo menor
+    interval: 80,
     afterReveal: function (el) {
       addRevealed(el);
     }
   });
-
 } else {
-  // Fallback com IntersectionObserver
   const els = document.querySelectorAll(revealSelector);
   if ("IntersectionObserver" in window && els.length) {
     const obs = new IntersectionObserver((entries, observer) => {
@@ -63,7 +69,6 @@ if (typeof ScrollReveal !== "undefined") {
     }, { threshold: 0.12 });
     els.forEach(el => obs.observe(el));
   } else {
-    // Se não há IntersectionObserver (navegadores muito antigos), revela tudo
     document.querySelectorAll(revealSelector).forEach(addRevealed);
   }
 }

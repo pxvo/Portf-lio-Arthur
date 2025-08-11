@@ -85,16 +85,55 @@ body {
 /* MENU HAMBÚRGUER */
 .hamburger {
   display: none;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   color: var(--text-color);
   cursor: pointer;
+  z-index: 1100;
 }
 
 @media (max-width: 768px) {
-  .hamburger { display: block; }
-  .nav-links { display: none; flex-direction: column; width: 100%; gap: 1rem; margin-top: 1rem; }
-  .nav-links.active { display: flex; }
-  .navbar ul li a { text-align: center; width: 100%; display: block; }
+  .hamburger { 
+    display: block; 
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--bg-color-alt);
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    z-index: 1000;
+    transform: translateY(-20px);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+  }
+
+  .nav-links.active {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .navbar ul li a { 
+    text-align: center; 
+    width: 100%; 
+    display: block; 
+    padding: 10px 0;
+  }
+
+  .navbar {
+    position: relative;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 
 /* ÍCONE DEV */
@@ -143,15 +182,13 @@ body {
   display: inline-block;
   white-space: nowrap;
   overflow: hidden;
-  width: 0; /* começa "fechado" e abre com a animação */
+  width: 0;
   border-right: 3px solid var(--accent-color);
   box-sizing: content-box;
-  /* animações definidas, mas pausadas até o reveal */
   animation: typing 2.4s steps(30, end) forwards, blink 0.7s step-end infinite;
   animation-play-state: paused;
 }
 
-/* quando a seção tiver .revealed a animação começa */
 .revealed .typing,
 .hero.revealed .typing {
   animation-play-state: running;
@@ -170,6 +207,7 @@ body {
 .highlight {
   background: linear-gradient(to right, var(--accent-color), #3399ff);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -259,14 +297,13 @@ body {
   display: none;
 }
 
-/* REVEAL ANIMATION (inicialmente escondido; JS adiciona .revealed) */
+/* REVEAL ANIMATION */
 section, footer, .hero {
   opacity: 0;
   transform: translateY(40px);
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
-/* quando .revealed for aplicada, exibe com transição suave */
 .revealed {
   opacity: 1 !important;
   transform: none !important;
