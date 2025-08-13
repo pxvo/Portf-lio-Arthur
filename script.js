@@ -1,22 +1,4 @@
-// Alternar tema claro/escuro
-const toggleBtn = document.getElementById("toggleTheme");
-if (toggleBtn) {
-  toggleBtn.addEventListener("click", () => {
-    document.body.classList.toggle("dark-mode");
-  });
-}
 
-// Voltar ao topo
-const backToTop = document.getElementById("backToTop");
-window.addEventListener("scroll", () => {
-  if (!backToTop) return;
-  backToTop.style.display = window.scrollY > 300 ? "block" : "none";
-});
-if (backToTop) {
-  backToTop.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  });
-}
 
 // Menu hambúrguer
 const hamburger = document.querySelector("#hamburger");
@@ -71,4 +53,15 @@ if (typeof ScrollReveal !== "undefined") {
   } else {
     document.querySelectorAll(revealSelector).forEach(addRevealed);
   }
+}
+
+// Texto flutuante do WhatsApp a cada 3 segundos
+const whatsappText = document.querySelector(".whatsapp-text");
+if (whatsappText) {
+  setInterval(() => {
+    whatsappText.style.opacity = 1;
+    setTimeout(() => {
+      whatsappText.style.opacity = 0;
+    }, 2000);
+  }, 3000);
 }

@@ -336,4 +336,55 @@ section, footer, .hero {
 
   .avatar img { width: 120px; height: 120px; }
   .repo-list { grid-template-columns: 1fr; }
+
+  .whatsapp-float img {
+  width: 40px;
+  height: 40px;
+}
+
+}
+
+/* Botão flutuante WhatsApp */
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.whatsapp-float img {
+  width: 30px;
+  height: 30px;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+  70% { transform: scale(1.1); box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+.whatsapp-text {
+  background: #25d366;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 20px;
+  margin-left: 10px;
+  font-size: 0.9rem;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  white-space: nowrap;
+}
+
+/* Footer*/
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  text-align: center;
 }
